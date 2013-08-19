@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: AW WordPress Yearly Category Archives
-Plugin URI: http://coded.andy-warren.net/wordpress-yearly-category-archives/
-Description: This plugin will allow for yearly archives of specific categories.
+Plugin URI: http://wordpress.org/plugins/aw-yearly-category-archives/
+Description: This plugin will allow for yearly archives of specific categories from all post types and "Posts".
 Version: 1.0
 Author: Andy Warren
 Author URI: http://coded.andy-warren.net

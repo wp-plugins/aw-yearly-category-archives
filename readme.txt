@@ -7,7 +7,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin will allow for WordPress yearly category archives. 
+This plugin will allow for yearly archives of specific categories from all post types and "Posts". 
 
 == Description ==
 
