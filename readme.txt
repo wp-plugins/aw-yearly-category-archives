@@ -20,7 +20,7 @@ Follow the instructions below to use the plugin.
   
 The following list explains this shortcode's usage and requirements.  
   
-* This shortcode has two (2) attibutes, and both attributes are required.  
+* This shortcode has two (2) attributes, and both attributes are required.  
 * The `cat="X"` attribute is the category ID you wish to display yearly links from. Replace the X with the numerical ID of the category you wish to query.  
 * The `postslug="slug-to-post-or-page"` attribute is the slug to the page that will display your yearly archived posts. This is also the slug of the page you will include the second shortcode on.  
 * Place this shortcode where you would like to display the year links to the specified category.
@@ -39,17 +39,19 @@ The following list explains this shortcode's usage and requirements.
   
 **Additional Notes**  
   
-* The shortcodes can be used multiple times throughout the site as long as they are always used in pairs with each pair having the same cat=\"X\" attribute. This is handy for displaying separate yearly category archives.  
+* The shortcodes can be used multiple times throughout the site as long as they are always used in pairs with each pair having the same `cat="X"` attribute. This is handy for displaying separate yearly category archives.  
 * The plugin will query all custom post types as well as the main "Posts".  
 * Currently the plugin only supports displaying Four (4) elements for each post. They are as follows and in order:  
-    1. `<h2> class="awPostTitle">The Post's Title</h2>`  
-    2. `<p> class="awPublishedOnDate">Published on Aug 13th, 2013</p>` 
-    3. `<p> class="awPostExcerpt">The Post's First 25 Words...<a href="http://yoursite.com/the-post-slug">Read More</a></p>` 
+    1. `<h2 class="awPostTitle">The Post's Title</h2>`  
+    2. `<p class="awPublishedOnDate">Published on Aug 13th, 2013</p>` 
+    3. `<p class="awPostExcerpt">The Post's First 25 Words...<a href="http://yoursite.com/the-post-slug">Read More</a></p>` 
     4. `<hr class="awPostDivider"/>`  
 * The actual post elements have classes; however they do not have styles. This is to allow you to style them how you choose. The only frontend style included is for the post divider `<hr class="awPostDivider"/` rule. This can be overriden if you so choose to.  
 * Currently there is also no pagination built into the display of yearly archived posts. I do have plans for this in the future if time allows.  
 * Currently I will only be able to offer limited support for this plugin. This could change in the future, also if time allows.  
 * If you do not know how to find your category IDs, I recommend [Reveal IDs](http://wordpress.org/plugins/reveal-ids-for-wp-admin-25/).
+
+Follow me on Twitter [@iAmAndyWarren](https://twitter.com/iAmAndyWarren) or find me at [andy-warren.net](http://andy-warren.net).  You can also reach me at [Coded](coded.andy-warren.net)
 
 == Installation ==
 
