@@ -46,7 +46,7 @@ The following list explains this shortcode's usage and requirements.
     2. `<p class="awPublishedOnDate">Published on Aug 13th, 2013</p>` 
     3. `<p class="awPostExcerpt">The Post's First 25 Words...<a href="http://yoursite.com/the-post-slug">Read More</a></p>` 
     4. `<hr class="awPostDivider"/>`  
-* The actual post elements have classes; however they do not have styles. This is to allow you to style them how you choose. The only frontend style included is for the post divider `<hr class="awPostDivider"/` rule. This can be overriden if you so choose to.  
+* The actual post elements have classes; however they do not have styles. This is to allow you to style them how you choose. The only frontend style included is for the post divider `<hr class="awPostDivider"/>` rule. This can be overriden if you so choose to.  
 * Currently there is also no pagination built into the display of yearly archived posts. I do have plans for this in the future if time allows.  
 * Currently I will only be able to offer limited support for this plugin. This could change in the future, also if time allows.  
 * If you do not know how to find your category IDs, I recommend [Reveal IDs](http://wordpress.org/plugins/reveal-ids-for-wp-admin-25/).
