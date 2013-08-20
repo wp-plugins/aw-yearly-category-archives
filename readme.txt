@@ -58,7 +58,7 @@ Follow me on Twitter [@iAmAndyWarren](https://twitter.com/iAmAndyWarren) or find
 To install the plugin follow these instructions:  
   
 1. Download the plugin and unzip it.  
-2. Upload the folder aw_yearly_category_archives to your /wp-content/plugins/ folder.  
+2. Upload the folder aw_yearly_category_archives to your /wp-content/plugins/ directory.  
 3. Activate the plugin from your WordPress admin panel.  
 4. Installation finished.
 
