@@ -3,7 +3,7 @@
 Plugin Name: AW WordPress Yearly Category Archives
 Plugin URI: http://wordpress.org/plugins/aw-yearly-category-archives/
 Description: This plugin will allow for yearly archives of specific categories from all post types and "Posts".
-Version: 1.0
+Version: 1.0.1
 Author: Andy Warren
 Author URI: http://coded.andy-warren.net
 
@@ -49,7 +49,7 @@ Whichever license you prefer ;-)
 
 // Add the menu page for the plugin
 function aw_yca_add_menu_page(){
-    add_menu_page( 'Yearly Category Archives', 'Yearly Category Archives', 'activate_plugins', 'aw_wp_yearly_category_archives/aw_yearlyCategory_menu_page.php', '', plugins_url( 'aw_yearly-category_archives/img/read.png' ), 100 );
+    add_menu_page( 'Yearly Category Archives', 'Yearly Category Archives', 'activate_plugins', 'aw-yearly-category-archives/aw_yearlyCategory_menu_page.php', '', plugins_url( 'aw-yearly-category-archives/img/read.png' ), 100 );
 }
 add_action( 'admin_menu', 'aw_yca_add_menu_page');
 
