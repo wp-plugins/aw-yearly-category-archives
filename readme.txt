@@ -66,7 +66,7 @@ To install the plugin follow these instructions:
 
 1. This screenshot is of the shortcode needed to generate the yearly links.  Place this shortcode where you would like to display the year links to the specified category.
 2. This screenshot is of the unordered list the above shortcode will generate.
-3. This screenshot is of the short code needed to display the yearly category archives.  Place this shortcode where you would like to display your archived posts.
+3. This screenshot is of the shortcode needed to display the yearly category archives.  Place this shortcode where you would like to display your yearly archived posts.
 4. This screenshot is of the post layout you will see when using the above shortcode.
 
 == Changelog ==
