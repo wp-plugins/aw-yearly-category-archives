@@ -1,6 +1,6 @@
 <div class="wrap">
 
-<h1 class="awMenuPageHeader">AW WordPress Yearly Category Archives</h1>
+<h1 class="awMenuPageHeader">AW WordPress Yearly Category Archives Instructions</h1>
 
 <p>This plugin will allow for yearly archives of specific categories.  See below for full instructions on its usage.</p>
 
@@ -46,11 +46,11 @@
 	<ul class="awAdminUL">
 		<li>The shortcodes can be used multiple times throughout the site <span class="form-invalid">as long as they are always used in pairs with each pair having the same <code>cat="X"</code> attribute</span>.  This is handy for displaying separate yearly category archives.</li>
 		<li>The plugin will query all custom post types as well as the main "Posts".</li>
-		<li>Currently the plugin only supports displaying Four (4) elements for each post.  They are as follows and in order:
+		<li>Currently the plugin will display Four (4) elements for each post, unless the admin chooses to write their own post structure on the <a href="<?php echo site_url(); ?>/wp-admin/admin.php?page=aw_wp_yearly_category_archives_1.5/aw_yearlyCategory_settings_page.php">settings page</a>.  They are as follows and in order:
 			<ol>
-				<li><code>&lt;h2&gt; class="awPostTitle"&gt;The Post's Title&lt;/h2&gt;</code></li>
-				<li><code>&lt;p&gt; class="awPublishedOnDate"&gt;Published on Aug 13th, 2013&lt;/p&gt;</code></li>
-				<li><code>&lt;p&gt; class="awPostExcerpt"&gt;The Post's First 25 Words...&lt;a href="http://yoursite.com/the-post-slug"&gt;Read More&lt;/a&gt;&lt;/p&gt;</code></li>
+				<li><code>&lt;h2 class="awPostTitle"&gt;The Post's Title&lt;/h2&gt;</code></li>
+				<li><code>&lt;p class="awPublishedOnDate"&gt;Published on Aug 13th, 2013&lt;/p&gt;</code></li>
+				<li><code>&lt;p class="awPostExcerpt"&gt;The Post's First 25 Words...&lt;a href="http://yoursite.com/the-post-slug"&gt;Read More&lt;/a&gt;&lt;/p&gt;</code></li>
 				<li><code>&lt;hr class="awPostDivider"/&gt;</code></li>
 			</ol>
 		</li>

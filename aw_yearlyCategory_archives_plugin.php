@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: AW WordPress Yearly Category Archives
-Plugin URI: http://wordpress.org/plugins/aw-yearly-category-archives/
-Description: This plugin will allow for yearly archives of specific categories from all post types and "Posts".
-Version: 1.0.1
+Plugin URI: http://coded.andy-warren.net/wordpress-yearly-category-archives/
+Description: This plugin will allow for yearly archives of specific categories.
+Version: 1.1
 Author: Andy Warren
 Author URI: http://coded.andy-warren.net
 
@@ -49,14 +49,17 @@ Whichever license you prefer ;-)
 
 // Add the menu page for the plugin
 function aw_yca_add_menu_page(){
-    add_menu_page( 'Yearly Category Archives', 'Yearly Category Archives', 'activate_plugins', 'aw-yearly-category-archives/aw_yearlyCategory_menu_page.php', '', plugins_url( 'aw-yearly-category-archives/img/read.png' ), 100 );
+    add_menu_page( 'Yearly Category Archives', 'Yearly Category Archives', 'activate_plugins', 'aw_wp_yearly_category_archives/aw_yearlyCategory_menu_page.php', '', plugins_url( 'aw_wp_yearly_category_archives/img/read.png' ), 100 );
+    add_submenu_page( 'aw_wp_yearly_category_archives/aw_yearlyCategory_menu_page.php', 'Settings', 'Settings', 'activate_plugins', 'aw_wp_yearly_category_archives/aw_yearlyCategory_settings_page.php' );
 }
 add_action( 'admin_menu', 'aw_yca_add_menu_page');
 
-// Add the plugin's admin page CSS file
+// Add the plugin's admin page JS/CSS files
 function aw_enqueue_yearly_category_css() {
 	wp_register_style('aw_yearly_category_css', plugins_url('/css/aw_yearly_category.css', __FILE__));
 	wp_enqueue_style('aw_yearly_category_css');
+	wp_register_script('aw_wp_yca_js', plugins_url('/js/aw_wp_yca_js.js', __FILE__));
+	wp_enqueue_script('aw_wp_yca_js');
 }
 add_action( 'admin_init', 'aw_enqueue_yearly_category_css' );
 
@@ -105,7 +108,80 @@ function aw_create_year_links($atts) {
 
 // Add shortcode [aw_year_links] to display yearly links
 add_shortcode( 'aw_year_links', 'aw_create_year_links' );
+?>
+<?php
+// Run aw_wp_yca_activate() when plugin is activated
+register_activation_hook(__FILE__,'aw_wp_yca_activate');
 
+// Run aw_wp_yca_deactivate() when plugin is deactivated
+register_deactivation_hook( __FILE__, 'aw_wp_yca_deactivate' );
+
+// Function to create new database field in wp_options
+function aw_wp_yca_activate() {
+	add_option('aw_wp_yca_postcontent', '', '', 'no');
+	add_option('aw_wp_yca_customhtmlphp', '', '', 'no');
+}
+
+// Delete the aw_wp_yca_postcontent database field in wp_options
+function aw_wp_yca_deactivate() {
+	delete_option('aw_wp_yca_postcontent');
+	delete_option('aw_wp_yca_customhtmlphp');
+}
+
+function aw_settings_page() {
+	
+if (isset($_POST["update_settings"])) {
+	//$customPostLayout = esc_attr($_POST["post-layout"]);
+	$customPostLayout = $_POST["post-layout"];
+	$newEvalString = stripslashes($customPostLayout);  
+	update_option('aw_wp_yca_postcontent', $newEvalString);
+	$customHtmlPhp = $_POST["customhtmlphp"];
+	update_option('aw_wp_yca_customhtmlphp', $customHtmlPhp);
+	$checkboxchecked = get_option( 'aw_wp_yca_customhtmlphp');		
+}
+echo $radioButtonValue;
+	
+?>
+<div class="wrap">
+	<h1 class="awMenuPageHeader">AW WordPress Yearly Category Archives Settings</h1>
+	
+	<p>
+		<strong>Here you can choose to input your own custom post layout to be used in the output loop.</strong>
+		<br/>
+		For example you could use:<br/>
+		<code>
+			&lt;div id="postWrapper"&gt;<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;&lt;?php the_title(); ?&gt;&lt;/h2&gt;<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php the_content(); ?&gt;<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;?php the_post_thumbnail(); ?&gt;<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;Continue Reading&lt;/a&gt;<br/>
+			&lt;/div&gt;
+		</code>
+		<br/><br/>
+		<strong>If unchecked the plugin will output its own post structure.  Don't forget to click the "Update Options" button.</strong>
+	</p>
+	
+	<form id="aw_wp_yca_form" method="post" action="">
+		<?php wp_nonce_field('update-options'); ?>
+		<span id="radioButtonsWatcher">
+			<?php $checkboxchecked2 = get_option( 'aw_wp_yca_customhtmlphp'); ?>
+			<label for="customhtml">Check this box to include custom HTML and/or WordPress PHP template tags in the output loop.</label>
+			<input type="checkbox" name="customhtmlphp" id="useCustomHtmlPhp" value="yes" <?php if($checkboxchecked == 'yes' OR $checkboxchecked2 == 'yes') { echo 'checked="checked"'; } ?> />
+			<br/><br/>
+		</span>
+		<span id="codeSubmitWrapper">
+			<label for="post-layout">Use this textarea input include any HTML or WordPress template tags you wish to use in the output loop.<br/><strong>All custom PHP in must be wrapped in</strong> <code>&lt;?php ?&gt;</code>.</label>
+			<br/>
+			<textarea id="codeTextArea" name="post-layout" rows="20" cols="120"><?php echo get_option('aw_wp_yca_postcontent'); ?></textarea>
+			<br/>			
+		</span>	
+	    <input type="hidden" name="update_settings" value="Y" />
+	    <input id="submitCode" class="button-primary" type="submit" name="Submit Code" value="<?php _e( 'Update Options' ); ?>" />	
+	</form>
+	
+
+</div>
+<?php } 
 // Show post archives by year and category
 function aw_show_posts_by_year_and_cat($atts) {
 	extract(shortcode_atts(array(
@@ -114,27 +190,41 @@ function aw_show_posts_by_year_and_cat($atts) {
 		'publishedon' => 'M jS, Y',
 	), $atts, 'aw_show_posts' ));
 	
-	$postTypes = get_post_types( '', 'names' ); 
-	$myposts = get_posts(array('posts_per_page' => -1, 'post_type' => $postTypes, 'category' => $cat, 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC'));
-	foreach ($myposts as $post) { 
-		$postdate = mysql2date('Y', $post->post_date);
-		$postPublishDate = mysql2date($publishedon, $post->post_date);
-		$postTitle = $post->post_title;
-		$postURL = $post->guid;
-		//$postContent = apply_filters('the_content', $post->post_content);
-		$postContent = $post->post_content;
-		$contentPieces = explode(" ", $postContent);
-        $first_25_excerpt = implode(" ", array_splice($contentPieces, 0, 25));
-			
-		if ($_SERVER["QUERY_STRING"] == $postdate) {
-			echo '<h2 class="awPostTitle">' .  $postTitle . '</h2>';
-			echo '<p class="awPublishedOnDate">Published on ' . $postPublishDate . '</p>';
-			echo '<p class="awPostExcerpt">' . $first_25_excerpt . '...<a class="awReadMore" href="' . $postURL . '">' . $readmore . '</a></p>';
-			echo '<hr class="awPostDivider"/>'; 
-		}
-	}
+	// Start the loop to display posts
+	$postTypes = get_post_types( '', 'names' );	
+    unset($postTypes['page'],$postTypes['attachment'],$postTypes['revision'],$postTypes['nav_menu_item']);
+    $showPosts = get_option('posts_per_page');
 	
-} // end aw_show_posts_by_year_and_cat()
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	
+	$customLayout = get_option('aw_wp_yca_postcontent');
+	
+	$postLoop = new WP_Query(array('posts_per_page' => -1, 'post_type' => $postTypes, 'category' => $cat, 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC', 'paged' => $paged));
+	while ( $postLoop->have_posts() ) : $postLoop->the_post();
+	
+	$postdate = get_the_date('Y');
+	$postContent = get_the_content();
+	$contentPieces = explode(" ", $postContent);
+    $first_25_excerpt = implode(" ", array_splice($contentPieces, 0, 25));
+    $checkboxchecked3 = get_option( 'aw_wp_yca_customhtmlphp');
+	
+	if ($_SERVER["QUERY_STRING"] == $postdate) { 
+		if ($checkboxchecked3=='yes') {
+			$myEvalString="?> ".get_option('aw_wp_yca_postcontent'). "<?php ;";
+			eval($myEvalString);
+		} else {	
+	?>
+		<h3><?php the_title(); ?></h3>
+		
+		<?php echo '<p class="awPublishedOnDate">Published on ' . get_the_date($publishedon) . '</p>'; ?>
+		
+		<?php echo '<p class="awPostExcerpt">' . $first_25_excerpt . '...<a class="awReadMore" href="' . get_permalink() . '">' . $readmore . '</a></p>'; ?>
+		
+		<hr class="awPostDivider"/>
+	
+	<?php }} endwhile; ?>
+	
+<?php } // end aw_show_posts_by_year_and_cat()
 
 // Add shortcode [aw_show_posts] to display yearly links
 add_shortcode( 'aw_show_posts', 'aw_show_posts_by_year_and_cat' );		
