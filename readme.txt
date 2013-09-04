@@ -74,7 +74,7 @@ To install the plugin follow these instructions:
 == Changelog ==
 
 = 1.1.1 =
-* Updated paths the plugin menu pages.
+* Updated paths to the plugin menu pages.
 
 = 1.1 =
 * Added settings page to allow site admin to input custom HTML and/or WordPress Template tags to be used for the archived posts output loop.
