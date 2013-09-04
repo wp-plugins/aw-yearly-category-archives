@@ -73,6 +73,9 @@ To install the plugin follow these instructions:
 
 == Changelog ==
 
+= 1.1.1 =
+* Updated paths the plugin menu pages.
+
 = 1.1 =
 * Added settings page to allow site admin to input custom HTML and/or WordPress Template tags to be used for the archived posts output loop.
 
@@ -82,5 +85,8 @@ To install the plugin follow these instructions:
 
 == Upgrade Notice ==
 
+= 1.1.1 =
+* This update will correct the paths the the plugin menu pages.  With this update the pages will no longer 404.
+
 = 1.1 =
-This upgrade will add the ability to allow the admin to create a custom post structure using HTML and/or Wordpress template tags.  This is handy to change the appearance of the archived posts to better fit your own blog/site.    
+* This upgrade will add the ability to allow the admin to create a custom post structure using HTML and/or Wordpress template tags.  This is handy to change the appearance of the archived posts to better fit your own blog/site.    
