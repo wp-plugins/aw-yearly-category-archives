@@ -86,7 +86,7 @@ To install the plugin follow these instructions:
 == Upgrade Notice ==
 
 = 1.1.1 =
-* This update will correct the paths the the plugin menu pages.  With this update the pages will no longer 404.
+This update will correct the paths the the plugin menu pages.  With this update the pages will no longer 404.
 
 = 1.1 =
-* This upgrade will add the ability to allow the admin to create a custom post structure using HTML and/or Wordpress template tags.  This is handy to change the appearance of the archived posts to better fit your own blog/site.    
+This upgrade will add the ability to allow the admin to create a custom post structure using HTML and/or Wordpress template tags.  This is handy to change the appearance of the archived posts to better fit your own blog/site.    
