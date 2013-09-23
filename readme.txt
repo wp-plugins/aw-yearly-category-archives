@@ -86,8 +86,8 @@ To install the plugin follow these instructions:
 * Added settings page to allow site admin to input custom HTML and/or WordPress Template tags to be used for the archived posts output loop.
 
 = 1.0.1 =
-* Corrected file path for menu item icon
-* Bug fixes
+* Corrected file path for menu item icon.
+* Bug fixes.
 
 == Upgrade Notice ==
 
