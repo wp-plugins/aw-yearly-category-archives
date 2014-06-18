@@ -52,7 +52,7 @@ The following list explains this shortcode's usage and requirements.
 * Currently I will only be able to offer limited support for this plugin. This could change in the future, also if time allows.  
 * If you do not know how to find your category IDs, I recommend [Reveal IDs](http://wordpress.org/plugins/reveal-ids-for-wp-admin-25/).
 
-Follow me on Twitter [@iAmAndyWarren](https://twitter.com/iAmAndyWarren) or find me at [andy-warren.net](http://andy-warren.net).  You can also reach me at [Coded](http://coded.andy-warren.net).  Want to make the plugin better?  Fork it or submit pull requests on GitHub at [https://github.com/andywarren/aw-yearly-category-archives](https://github.com/andywarren/aw-yearly-category-archives).
+Follow me on Twitter [@iAmAndyWarren](https://twitter.com/iAmAndyWarren) or find me at [andy-warren.net](http://andy-warren.net).  Want to make the plugin better?  Fork it or submit pull requests on GitHub at [https://github.com/andywarren/aw-yearly-category-archives](https://github.com/andywarren/aw-yearly-category-archives).
 
 == Installation ==
 
