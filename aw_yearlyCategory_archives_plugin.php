@@ -3,7 +3,7 @@
 Plugin Name: AW WordPress Yearly Category Archives
 Plugin URI: http://coded.andy-warren.net/wordpress-yearly-category-archives/
 Description: This plugin will allow for yearly archives of specific categories.
-Version: 1.2.2
+Version: 1.2.3
 Author: Andy Warren
 Author URI: http://coded.andy-warren.net
 
@@ -78,6 +78,8 @@ function aw_create_year_links($atts) {
 		'postslug' => '',
 		'dropdown' => 'no',
 	), $atts, 'aw_year_links' ));
+	
+	ob_start();
 				
 	$dateArray = array();
 	$postTypes = get_post_types( '', 'names' ); 
@@ -94,7 +96,6 @@ function aw_create_year_links($atts) {
 		
 		if ($dropdown == 'yes') {
 			wp_enqueue_script('frontend_js');
-			//echo '<script type="text/javascript">jQuery( document ).ready(function() { jQuery(".awYearsDropdown").change( function() { location.href = jQuery(this).val(); }); jQuery(".awYearsDropdown").prepend("<option>Choose A Year</option>").val("Choose A Year"); });</script>';
 			echo '<select class="awYearsDropdown">';
 		} else {				
 			echo '<ul class="awDatesUL">';
@@ -125,6 +126,8 @@ function aw_create_year_links($atts) {
 	} else {
 		echo '<p>The are no posts in this category click <a href="' . home_url() .  '">here</a> to return to the home page.</p>';
 	}
+	
+	return ob_get_clean();
 	
 } // end aw_create_year_links()
 
@@ -213,6 +216,8 @@ function aw_show_posts_by_year_and_cat($atts) {
 		'publishedon' => 'M jS, Y',
 	), $atts, 'aw_show_posts' ));
 	
+	ob_start();
+	
 	// Start the loop to display posts
 	$postTypes = get_post_types( '', 'names' );	
     unset($postTypes['page'],$postTypes['attachment'],$postTypes['revision'],$postTypes['nav_menu_item']);
@@ -247,7 +252,7 @@ function aw_show_posts_by_year_and_cat($atts) {
 	
 	<?php }} endwhile; ?>
 	
-<?php } // end aw_show_posts_by_year_and_cat()
+<?php return ob_get_clean(); } // end aw_show_posts_by_year_and_cat()
 
 // Add shortcode [aw_show_posts] to display yearly links
 add_shortcode( 'aw_show_posts', 'aw_show_posts_by_year_and_cat' );		
