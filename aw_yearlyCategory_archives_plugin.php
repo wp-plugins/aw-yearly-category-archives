@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: AW WordPress Yearly Category Archives
-Plugin URI: http://coded.andy-warren.net/wordpress-yearly-category-archives/
+Plugin URI: hhttp://www.andy-warren.net
 Description: This plugin will allow for yearly archives of specific categories.
-Version: 1.2.3
+Version: 1.2.4
 Author: Andy Warren
-Author URI: http://coded.andy-warren.net
+Author URI: http://www.andy-warren.net
 
 License:
 
@@ -227,7 +227,7 @@ function aw_show_posts_by_year_and_cat($atts) {
 	
 	$customLayout = get_option('aw_wp_yca_postcontent');
 	
-	$postLoop = new WP_Query(array('posts_per_page' => -1, 'post_type' => $postTypes, 'category' => $cat, 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC', 'paged' => $paged));
+	$postLoop = new WP_Query(array('posts_per_page' => -1, 'post_type' => $postTypes, 'cat' => $cat, 'post_status' => 'publish', 'orderby' => 'post_date', 'order' => 'DESC', 'paged' => $paged));
 	while ( $postLoop->have_posts() ) : $postLoop->the_post();
 	
 	$postdate = get_the_date('Y');
