@@ -75,7 +75,7 @@ To install the plugin follow these instructions:
 
 == Changelog ==
 
-= 1.2.3 =
+= 1.2.4 =
 * Corrected parameter in WP_Query() for the post output function
 
 = 1.2.3 =
