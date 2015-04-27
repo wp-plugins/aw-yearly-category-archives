@@ -1,5 +1,5 @@
 === AW WordPress Yearly Category Archives ===
-Contributors: AndyWarren 
+Contributors: awarren 
 Tags: Yearly Category Archives, Archives, Yearly Archives, Category Archives by Year
 Requires at least: 3.5.2
 Tested up to: 4.2
