@@ -1,6 +1,6 @@
 === AW WordPress Yearly Category Archives ===
 Contributors: awarren
-Donation link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C6AZTULD7TEMA 
+Donation Link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C6AZTULD7TEMA 
 Tags: Yearly Category Archives, Archives, Yearly Archives, Category Archives by Year
 Requires at least: 3.5.2
 Tested up to: 4.2
