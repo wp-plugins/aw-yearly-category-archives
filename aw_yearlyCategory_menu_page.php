@@ -4,6 +4,13 @@
 
 <p>This plugin will allow for yearly archives of specific categories.  See below for full instructions on its usage.</p>
 <p>Want to make it better?  Contribute here: <a href="https://github.com/andywarren/aw-yearly-category-archives" target="_blank">https://github.com/andywarren/aw-yearly-category-archives</a></p>
+<p>If this plugin helped you out, buy me a beer! <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="C6AZTULD7TEMA">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+</p>
 
 <br/>
 
@@ -65,8 +72,7 @@
 	<p>
 		Find me on Twitter at <a target="_blank" href="https://twitter.com/iAmAndyWarren">https://twitter.com/iAmAndyWarren</a> or follow me now by clicking <a href="https://twitter.com/iAmAndyWarren" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>.
 		<br/>
-		You can also find me at <a target="_blank" href="http://www.andy-warren.net">andy-warren.net</a> or check <a target="_blank" href="http://coded.andy-warren.net">Coded</a> for additional WordPress, jQuery, and other fun stuff.
-	</p>
+		You can also find me at <a target="_blank" href="http://www.andy-warren.net">andy-warren.net</a></p>
 
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	
