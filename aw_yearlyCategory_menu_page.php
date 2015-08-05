@@ -35,15 +35,16 @@
 <br/><hr class="awHalfWidthFloatLeft"/><br/>
 
 <p>
-	The second shortcode is <code>[aw_show_posts cat="X" readmore="Continue Reading" publishedon="n/j/Y"]</code>, which is used to display the post content after click a year link.
+	The second shortcode is <code>[aw_show_posts cat="X" readmore="Continue Reading" publishedon="n/j/Y" showsubheader="no"]</code>, which is used to display the post content after click a year link.
 	<br/>
 	The following list explains this shortcode's usage and requirements.
 </p>
 	<ul class="awAdminUL">
-		<li>This shortcode has three (3) attributes.  One (1) is required, and two (2) are optional.</li>
+		<li>This shortcode has three (4) attributes.  One (1) is required, and two (3) are optional.</li>
 		<li>The <code>cat="X"</code> attribute is the category ID you wish to display yearly archived posts from.  <span class="form-invalid">This attribute is required.</span>  Replace the <code>X</code> with the numerical ID of the category you wish to query.  You may include a comma separated list of category IDs with this attribute if you want to query multiple categories.</li>
 		<li>The <code>readmore="Continue Reading"</code> attribute is the text you wish to display for the "Read More" link.  This attribute is optional and will default to "Read More" if left out.</li>
 		<li>The <code>publishedon="n/j/Y"</code> attribute is the PHP date format the published on date will appear in the archived posts.  This attribute is optional and will default to "M jS, Y" if left out.  Refer <a target="_blank" title="PHP Date Format Reference" href="http://php.net/manual/en/function.date.php">here</a> for further info on the PHP date format.</li>
+		<li>The <code>showsubheader="no"</code> attribute is used to display a subheader above the post output that says which category and year is being displayed. it will read like this: <strong>Category: Example Category Name - Year: 20XX</strong>. This is an optional shortcode attribute. If left off the shortcode the subheader will be shown. Use <code>showsubheader="no"</code> to not output the subheader.</li>
 		<li>Place this shortcode where you would like to display your archived posts.</li>
 	</ul>
 
@@ -55,8 +56,10 @@
 	<ul class="awAdminUL">
 		<li>The shortcodes can be used multiple times throughout the site <span class="form-invalid">as long as they are always used in pairs with each pair having the same <code>cat="X"</code> attribute</span>.  This is handy for displaying separate yearly category archives.</li>
 		<li>The plugin will query all custom post types as well as the main "Posts".</li>
-		<li>Currently the plugin will display Four (4) elements for each post, unless the admin chooses to write their own post structure on the <a href="<?php echo site_url(); ?>/wp-admin/admin.php?page=aw_wp_yearly_category_archives_1.5/aw_yearlyCategory_settings_page.php">settings page</a>.  They are as follows and in order:
+		<li>Currently the plugin will display Six (6) elements for each post, unless the admin chooses to write their own post structure on the <a href="<?php echo site_url(); ?>/wp-admin/admin.php?page=aw_wp_yearly_category_archives_1.5/aw_yearlyCategory_settings_page.php">settings page</a>.  They are as follows and in order:
 			<ol>
+				<li><code>&lt;h3 class="awyca_subheader"&gt;Category: Example Category Name - Year: 20XX&lt;/h3&gt;</code></li>
+				<li><code>&lt;div class="awyca_postWrapper"&gt;&lt;/div&gt;</code> - (this wraps each post including all the elements below in this list)</li>
 				<li><code>&lt;h2 class="awPostTitle"&gt;The Post's Title&lt;/h2&gt;</code></li>
 				<li><code>&lt;p class="awPublishedOnDate"&gt;Published on Aug 13th, 2013&lt;/p&gt;</code></li>
 				<li><code>&lt;p class="awPostExcerpt"&gt;The Post's First 25 Words...&lt;a href="http://yoursite.com/the-post-slug"&gt;Read More&lt;/a&gt;&lt;/p&gt;</code></li>

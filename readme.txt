@@ -3,7 +3,7 @@ Contributors: awarren
 Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C6AZTULD7TEMA 
 Tags: Yearly Category Archives, Archives, Yearly Archives, Category Archives by Year
 Requires at least: 3.5.2
-Tested up to: 4.2
+Tested up to: 4.2.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -35,7 +35,8 @@ The following list explains this shortcode's usage and requirements.
 * This shortcode has three (3) attributes. One (1) is required, and two (2) are optional.  
 * The `cat="X"` attribute is the category ID you wish to display yearly archived posts from.  Replace the X with the numerical ID of the category you wish to query.  You may include a comma separated list of category IDs with this attribute if you want to query multiple categories.  **This attribute is required.**  
 * The `readmore="Continue Reading"` attribute is the text you wish to display for the "Read More" link. This attribute is optional and will default to "Read More" if left out.  
-* The `publishedon="n/j/Y"` attribute is the PHP date format the published on date will appear in the archived posts. This attribute is optional and will default to "M jS, Y" if left out. Refer [here](http://php.net/manual/en/function.date.php) for further info on the PHP date format.  
+* The `publishedon="n/j/Y"` attribute is the PHP date format the published on date will appear in the archived posts. This attribute is optional and will default to "M jS, Y" if left out. Refer [here](http://php.net/manual/en/function.date.php) for further info on the PHP date format.
+* The `showsubheader="no"` attribute is used to display a subheader above the post output that says which category and year is being displayed. it will read like this: **Category: Example Category Name - Year: 20XX**. This is an optional shortcode attribute. If left off the shortcode the subheader will be shown. Use `showsubheader="no"` to not output the subheader.  **This attribute is optional and can be left off completely.**   
 * Place this shortcode where you would like to display your archived posts.
   
   
@@ -43,11 +44,13 @@ The following list explains this shortcode's usage and requirements.
   
 * The shortcodes can be used multiple times throughout the site as long as they are always used in pairs with each pair having the same `cat="X"` attribute. This is handy for displaying separate yearly category archives.  
 * The plugin will query all custom post types as well as the main "Posts".  
-* Currently the plugin will display Four (4) elements for each post, unless the admin chooses to write their own post structure on the settings page. They are as follows and in order:  
-    1. `<h2 class="awPostTitle">The Post's Title</h2>`  
-    2. `<p class="awPublishedOnDate">Published on Aug 13th, 2013</p>` 
-    3. `<p class="awPostExcerpt">The Post's First 25 Words...<a href="http://yoursite.com/the-post-slug">Read More</a></p>` 
-    4. `<hr class="awPostDivider"/>`  
+* Currently the plugin will display Five (5) elements for each post, unless the admin chooses to write their own post structure on the settings page. They are as follows and in order:
+	1. `<h3 class="awyca_subheader">Category: Example Category Name - Year: 20XX</h3>`
+	2. `<div class="awyca_postWrapper"></div>` - (this wraps each post including all the elements below in this list)</li>  
+    3. `<h2 class="awPostTitle">The Post's Title</h2>`  
+    4. `<p class="awPublishedOnDate">Published on Aug 13th, 2013</p>` 
+    5. `<p class="awPostExcerpt">The Post's First 25 Words...<a href="http://yoursite.com/the-post-slug">Read More</a></p>` 
+    6. `<hr class="awPostDivider"/>`  
 * The actual post elements have classes; however they do not have styles. This is to allow you to style them how you choose. The only frontend style included is for the post divider `<hr class="awPostDivider"/>` rule. This can be overriden if you so choose to.  
 * Currently there is also no pagination built into the display of yearly archived posts. I do have plans for this in the future if time allows.  
 * Currently I will only be able to offer limited support for this plugin. This could change in the future, also if time allows.  

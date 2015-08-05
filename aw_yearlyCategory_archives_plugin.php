@@ -214,9 +214,16 @@ function aw_show_posts_by_year_and_cat($atts) {
 		'cat' => '1',
 		'readmore' => 'Read More',
 		'publishedon' => 'M jS, Y',
+		'showsubheader' => 'yes',
 	), $atts, 'aw_show_posts' ));
 	
 	ob_start();
+	
+	if ($showsubheader == 'yes') {
+	
+		echo '<h3 class="awyca_subheader">Category: ' . get_cat_name($cat) . ' - Year: ' . $_SERVER["QUERY_STRING"] . '</h3>';
+		
+	}
 	
 	// Start the loop to display posts
 	$postTypes = get_post_types( '', 'names' );	
@@ -242,13 +249,18 @@ function aw_show_posts_by_year_and_cat($atts) {
 			eval($myEvalString);
 		} else {	
 	?>
-		<h3><?php the_title(); ?></h3>
+	
+		<div class="awyca_postWrapper">
+	
+			<h3><?php the_title(); ?></h3>
+			
+			<?php echo '<p class="awPublishedOnDate">Published on ' . get_the_date($publishedon) . '</p>'; ?>
+			
+			<?php echo '<p class="awPostExcerpt">' . $first_25_excerpt . '...<a class="awReadMore" href="' . get_permalink() . '">' . $readmore . '</a></p>'; ?>
+			
+			<hr class="awPostDivider"/>
 		
-		<?php echo '<p class="awPublishedOnDate">Published on ' . get_the_date($publishedon) . '</p>'; ?>
-		
-		<?php echo '<p class="awPostExcerpt">' . $first_25_excerpt . '...<a class="awReadMore" href="' . get_permalink() . '">' . $readmore . '</a></p>'; ?>
-		
-		<hr class="awPostDivider"/>
+		</div>
 	
 	<?php }} endwhile; ?>
 	
